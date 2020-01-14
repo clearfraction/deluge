@@ -48,7 +48,7 @@ even from behind a router with virtually zero configuration of port-forwarding.
 #/usr/bin/2to3-3.7
 
 
-/usr/bin/2to3 setup.py build
+python3 setup.py build
 
 %install
 # http://dev.deluge-torrent.org/ticket/2034
@@ -57,10 +57,11 @@ install -m644 %{SOURCE2} %{buildroot}%{_unitdir}/%{name}-daemon.service
 install -m644 %{SOURCE3} %{buildroot}%{_unitdir}/%{name}-web.service
 mkdir -p %{buildroot}/var/lib/%{name}
 
-/usr/bin/2to3 setup.py install -O1 --skip-build --root %{buildroot}
+#/usr/bin/2to3 setup.py install -O1 --skip-build --root %{buildroot}
+python3 -tt setup.py build  install --root=%{buildroot}
 
 
-/usr/bin/2to3 -m pip install --user pyOpenSSL pyrencode GeoIP
+python3 -m pip install --user pyOpenSSL pyrencode GeoIP
 pushd $HOME
 cp -rf .local/lib/python3.8/site-packages/* %{buildroot}/usr/lib/python3.8/site-packages/
 popd
