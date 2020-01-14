@@ -4,7 +4,7 @@ Release:        1
 Summary:        A GTK+ BitTorrent client with support for DHT, UPnP, and PEX
 License:        GPLv3 with exceptions
 URL:            http://deluge-torrent.org/
-Source0:        https://git.deluge-torrent.org/deluge/snapshot/deluge-deluge-2.0.3.tar.gz
+Source0:        http://download.deluge-torrent.org/source/2.0/%{name}-%{version}.tar.xz
 Source2:        deluge-daemon.service
 Source3:        deluge-web.service
 
@@ -38,7 +38,7 @@ even from behind a router with virtually zero configuration of port-forwarding.
 
 
 %prep
-%setup -n deluge-deluge-2.0.3
+%setup -n deluge-2.0.3
 
 
 %build
