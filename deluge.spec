@@ -38,7 +38,7 @@ even from behind a router with virtually zero configuration of port-forwarding.
 
 
 %prep
-%setup -v deluge-deluge-2.0.3
+%setup -n deluge-deluge-2.0.3
 
 
 %build
