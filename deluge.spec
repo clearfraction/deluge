@@ -48,9 +48,18 @@ even from behind a router with virtually zero configuration of port-forwarding.
 #/usr/bin/2to3-3.7
 
 
+unset http_proxy
+unset no_proxy 
+unset https_proxy
+
 python3 setup.py build
 
 %install
+
+unset http_proxy
+unset no_proxy 
+unset https_proxy
+
 # http://dev.deluge-torrent.org/ticket/2034
 mkdir -p %{buildroot}%{_unitdir}
 install -m644 %{SOURCE2} %{buildroot}%{_unitdir}/%{name}-daemon.service
