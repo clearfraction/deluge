@@ -1,14 +1,14 @@
-Name:           deluge
-Version:        2.0.3
-Release:        1
-Summary:        A GTK+ BitTorrent client with support for DHT, UPnP, and PEX
-License:        GPLv3 with exceptions
-URL:            http://deluge-torrent.org/
-Source0:        http://download.deluge-torrent.org/source/2.0/%{name}-%{version}.tar.xz
-Source2:        deluge-daemon.service
-Source3:        deluge-web.service
+Name:  deluge
+Version:  2.0.3
+Release:  1
+Summary:  A GTK+ BitTorrent client with support for DHT, UPnP, and PEX
+License:  GPLv3 with exceptions
+URL:      http://deluge-torrent.org/
+Source0:  http://download.deluge-torrent.org/source/2.0/%{name}-%{version}.tar.xz
+Source2:  deluge-daemon.service
+Source3:  deluge-web.service
 
-BuildArch:     noarch
+BuildArch:  noarch
 BuildRequires: python3-dev
 BuildRequires: pip
 BuildRequires: openssl-dev
@@ -38,7 +38,6 @@ environments such as GNOME and XFCE. It supports features such as DHT
 even from behind a router with virtually zero configuration of port-forwarding.
 
 
-
 %prep
 %setup -n deluge-2.0.3
 
@@ -46,9 +45,7 @@ even from behind a router with virtually zero configuration of port-forwarding.
 %build
 #/usr/bin/2to3
 #/usr/bin/2to3-3.8
-
 #/usr/bin/2to3-3.7
-
 
 unset http_proxy
 unset no_proxy 
@@ -79,7 +76,26 @@ popd
 
 
 %files
+/usr/bin/deluge
+/usr/bin/deluge-console
+/usr/bin/deluge-gtk
+/usr/bin/deluge-web
+/usr/bin/deluged
+/usr/lib/python3.8/site-packages/deluge-2.0.3-py*.egg-info/*
+/usr/lib/python3.8/site-packages/deluge/
+/usr/share/icons/hicolor/*/apps/deluge.png
+/usr/share/man/man1/deluge-console.1
+/usr/share/man/man1/deluge-gtk.1
+/usr/share/man/man1/deluge-web.1
+/usr/share/man/man1/deluge.1
+/usr/share/man/man1/deluged.1
+/usr/share/pixmaps/deluge.png
 
+# Our bundle python3 modules
+/usr/lib/python3.8/site-packages/GeoIP-1.3.2-py*.egg-info/*
+/usr/lib/python3.8/site-packages/GeoIP.cpython-38-x86_64-linux-gnu.so
+/usr/lib/python3.8/site-packages/pyrencode-0.1.4.dist-info/*
+/usr/lib/python3.8/site-packages/pyrencode/
 
 %post 
 %systemd_post deluge-daemon.service
@@ -94,3 +110,5 @@ popd
 %systemd_postun_with_restart deluge-web.service
 
 %changelog
+* Mon Jan 13 2019 David Va <davidva AT tuta DOT io> - 2.0.3-1
+* Initial build
