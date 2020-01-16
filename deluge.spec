@@ -110,5 +110,5 @@ popd
 %systemd_postun_with_restart deluge-web.service
 
 %changelog
-* Mon Jan 13 2019 David Va <davidva AT tuta DOT io> - 2.0.3-1
+* Mon Jan 13 2020 David Va <davidva AT tuta DOT io> - 2.0.3-1
 * Initial build
