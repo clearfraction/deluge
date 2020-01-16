@@ -12,10 +12,12 @@ BuildArch:     noarch
 BuildRequires: python3-dev
 BuildRequires: pip
 BuildRequires: openssl-dev
+BuildRequires: geoip-dev
 
 Requires: python3 >= 3.8.1
 Requires: openssl
 Requires: libtorrent-rasterbar
+Requires: geoip
 
 Requires: pyxdg-python3
 Requires: six-python3
