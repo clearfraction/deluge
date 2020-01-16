@@ -15,7 +15,7 @@ BuildRequires: pip
 BuildRequires: openssl-dev
 BuildRequires: geoip-dev
 
-Requires: python3
+#Requires: python3
 Requires: openssl
 Requires: libtorrent-rasterbar
 Requires: geoip
