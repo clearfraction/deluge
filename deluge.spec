@@ -15,7 +15,6 @@ BuildRequires: pip
 BuildRequires: openssl-dev
 BuildRequires: geoip-dev
 
-Requires: python3 >= 3.8.1
 Requires: openssl
 Requires: libtorrent-rasterbar
 Requires: geoip
@@ -84,7 +83,8 @@ popd
 /usr/bin/deluged
 /usr/lib/python3.8/site-packages/deluge-2.0.3-py*.egg-info/*
 /usr/lib/python3.8/site-packages/deluge/
-/usr/share/icons/hicolor/*/apps/deluge.png
+/usr/share/icons/hicolor/*/apps/deluge*.png
+/usr/share/icons/hicolor/*/apps/deluge.svg
 /usr/share/man/man1/deluge-console.1
 /usr/share/man/man1/deluge-gtk.1
 /usr/share/man/man1/deluge-web.1
