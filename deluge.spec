@@ -8,7 +8,8 @@ Source0:  http://download.deluge-torrent.org/source/2.0/%{name}-%{version}.tar.x
 Source2:  deluge-daemon.service
 Source3:  deluge-web.service
 
-BuildArch:  noarch
+# No noarch because we are using bundle binaries modules python3
+# BuildArch:  noarch
 BuildRequires: python3-dev
 BuildRequires: pip
 BuildRequires: openssl-dev
