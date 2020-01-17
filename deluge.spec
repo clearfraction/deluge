@@ -14,8 +14,6 @@ BuildRequires: python3-dev
 BuildRequires: pip
 BuildRequires: openssl-dev
 BuildRequires: geoip-dev
-BuildRequires: Cython-bin
-BuildRequires: Cython-python3
 
 #Requires: python3
 Requires: openssl
@@ -31,6 +29,7 @@ Requires: Pillow-python3
 Requires: dbus-python-python3
 Requires: distro-python3
 Requires: Mako-python3
+Requires: rencode-python3
 
 %description
 Deluge is a new BitTorrent client, created using Python and GTK+. It is
@@ -72,7 +71,7 @@ mkdir -p %{buildroot}/var/lib/%{name}
 python3 -tt setup.py build  install --root=%{buildroot}
 
 
-python3 -m pip install --user pyOpenSSL rencode GeoIP
+python3 -m pip install --user pyOpenSSL GeoIP
 pushd $HOME
 cp -rf .local/lib/python3.8/site-packages/* %{buildroot}/usr/lib/python3.8/site-packages/
 popd
@@ -98,9 +97,6 @@ popd
 # Our bundle python3 modules
 /usr/lib/python3.8/site-packages/GeoIP-1.3.2-py*.egg-info/*
 /usr/lib/python3.8/site-packages/GeoIP.cpython-38-x86_64-linux-gnu.so
-
-/usr/lib/python3.8/site-packages/rencode-1.0.6-py*.egg-info/*
-/usr/lib/python3.8/site-packages/rencode/
 
 %post 
 %systemd_post deluge-daemon.service
