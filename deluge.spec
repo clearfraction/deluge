@@ -1,6 +1,6 @@
 Name:  deluge
 Version:  2.0.3
-Release:  1
+Release:  1.1
 Summary:  A GTK+ BitTorrent client with support for DHT, UPnP, and PEX
 License:  GPLv3 with exceptions
 URL:      http://deluge-torrent.org/
@@ -70,7 +70,7 @@ mkdir -p %{buildroot}/var/lib/%{name}
 python3 -tt setup.py build  install --root=%{buildroot}
 
 
-python3 -m pip install --user pyOpenSSL pyrencode GeoIP
+python3 -m pip install --user pyOpenSSL rencode GeoIP
 pushd $HOME
 cp -rf .local/lib/python3.8/site-packages/* %{buildroot}/usr/lib/python3.8/site-packages/
 popd
@@ -96,8 +96,9 @@ popd
 # Our bundle python3 modules
 /usr/lib/python3.8/site-packages/GeoIP-1.3.2-py*.egg-info/*
 /usr/lib/python3.8/site-packages/GeoIP.cpython-38-x86_64-linux-gnu.so
-/usr/lib/python3.8/site-packages/pyrencode-0.1.4.dist-info/*
-/usr/lib/python3.8/site-packages/pyrencode/
+
+/usr/lib/python3.8/site-packages/rencode-1.0.6-py*.egg-info/*
+/usr/lib/python3.8/site-packages/rencode/
 
 %post 
 %systemd_post deluge-daemon.service
@@ -112,5 +113,5 @@ popd
 %systemd_postun_with_restart deluge-web.service
 
 %changelog
-* Mon Jan 13 2020 David Va <davidva AT tuta DOT io> - 2.0.3-1
+* Mon Jan 13 2020 David Va <davidva AT tuta DOT io> - 2.0.3-1.1
 * Initial build
