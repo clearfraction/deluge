@@ -14,6 +14,7 @@ BuildRequires: python3-dev
 BuildRequires: pip
 BuildRequires: openssl-dev
 BuildRequires: geoip-dev
+BuildRequires: Cython-python3
 
 #Requires: python3
 Requires: openssl
